@@ -5,6 +5,7 @@ import "izitoast/dist/css/iziToast.min.css";
 
 const refs = {
   startBtn: document.querySelector('button[data-start]'),
+  input: document.querySelector('#datetime-picker'),
   days: document.querySelector('.value[data-days]'),
   hours: document.querySelector('.value[data-hours]'),
   minutes: document.querySelector('.value[data-minutes]'),
@@ -30,8 +31,10 @@ const options = {
         position: 'topRight',
       });
       refs.startBtn.disabled = true;
+      
     } else {
       refs.startBtn.disabled = false;
+      
     }
   },
 };
@@ -45,7 +48,8 @@ const timer = {
     if (this.isActive) return;
     this.isActive = true;
     refs.startBtn.disabled = true;
-    
+    refs.input.disabled = true;
+   
     this.intervalId = setInterval(() => {
       const currentTime = new Date();
       const diffMS = userSelectedDate - currentTime;
@@ -53,6 +57,7 @@ const timer = {
       if (diffMS <= 0) {
         clearInterval(this.intervalId);
         this.isActive = false;
+        refs.input.disabled = false;
         return;
       }
       const result = convertMs(diffMS);
