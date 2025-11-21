@@ -22,12 +22,14 @@ function handleClick(e) {
     promise
         .then(value => {
             iziToast.success({
-                message: `✅ Fulfilled promise in ${delay}ms`
+                message: `✅ Fulfilled promise in ${delay}ms`,
+                icon: false,
             })
         })
         .catch(error => {
             iziToast.error({
-                message: `❌ Rejected promise in ${delay}ms`
+                message: `❌ Rejected promise in ${delay}ms`,
+                icon: false,
             })
         })
     
