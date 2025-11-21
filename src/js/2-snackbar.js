@@ -20,13 +20,13 @@ function handleClick(e) {
         }, delay);
     });
     promise
-        .then(value => {
+        .then(() => {
             iziToast.success({
                 message: `✅ Fulfilled promise in ${delay}ms`,
                 icon: false,
             })
         })
-        .catch(error => {
+        .catch(() => {
             iziToast.error({
                 message: `❌ Rejected promise in ${delay}ms`,
                 icon: false,
