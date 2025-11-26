@@ -2,7 +2,8 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 const refs = {
-    form: document.querySelector('.form')
+    form: document.querySelector('.form'),
+    formBtn: document.querySelector('button')
 }
 
 
@@ -19,8 +20,10 @@ function handleClick(e) {
             }
         }, delay);
     });
+    refs.formBtn.disabled = true;
     promise
         .then(() => {
+            
             iziToast.success({
                 message: `✅ Fulfilled promise in ${delay}ms`,
                 icon: false,
@@ -31,6 +34,11 @@ function handleClick(e) {
                 message: `❌ Rejected promise in ${delay}ms`,
                 icon: false,
             })
+        })
+        .finally(() => {
+            refs.form.reset();
+            refs.formBtn.disabled = false;
+            
         })
     
 }

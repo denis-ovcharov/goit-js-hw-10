@@ -9,7 +9,18 @@
   </head>
   <body>
     <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
-
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a class="nav-link {=$highlight-act}" href="./1-timer.html"
+          >Таймер зворотного відліку</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {=$highlight-curr}" href="./2-snackbar.html"
+          >Генератор промісів</a
+        >
+      </li>
+    </ul>
     <main>
       <!-- Loads the specified .html file -->
       <load src="./partials/vite-promo.html" />
